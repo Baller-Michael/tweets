@@ -30,7 +30,7 @@ Meteor.startup(() => {
       Tweets.remove({})
     },
     'saveTweet': function (tweet) {
-      Tweets.insert({ tweet })
+      Tweets.update({'tweet.id': tweet.id}, { tweet },{ upsert: true} )
     }
   });
 });
