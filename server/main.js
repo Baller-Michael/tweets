@@ -1,10 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import '../imports/api/tweets.js';
+import { Tweets } from '../imports/api/tweets.js';
 
 Meteor.startup(() => {
   Meteor.methods({
 
-    'postTweet': function ({userId}) {
+    'postTweet': function ({ userId }) {
 
       Twit = require('twit');
 
@@ -24,7 +25,12 @@ Meteor.startup(() => {
         throw new Meteor.Error(error.name, error.message);
       }
 
+    },
+    'consolePP': function () {
+      Tweets.remove({})
+    },
+    'saveTweet': function (tweet) {
+      Tweets.insert({ tweet })
     }
-
   });
 });

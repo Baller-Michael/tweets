@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import TweetComponent from './TweetComponent.jsx';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Tweets } from '../api/tweets';
 
-export default class TweetsTab extends Component {
+class TweetsTab extends Component {
     constructor(props) {
         super(props)
-        this.state = { userId: '' }
+        this.state = { userId: '', showSavedTweets: false }
         this.getTwitterId = this.getTwitterId.bind(this);
         this.sendUserId = this.sendUserId.bind(this);
     }
@@ -32,7 +34,9 @@ export default class TweetsTab extends Component {
     // ));
 
     render() {
-        const { tweets } = this.state;
+        const { tweets, showSavedTweets } = this.state;
+        const { savedTweets } = this.props;
+        console.log('savedTweets', savedTweets)
         return (
             <div className="tweet-components">
                 <form onSubmit={this.sendUserId} className="send-id">
@@ -40,12 +44,19 @@ export default class TweetsTab extends Component {
                     <input type="submit" className="search-btn" value="Search User tweets" />
                 </form>
                 <div className="tweet-tabs">
-                    <a href="">Tweets</a>
+                    <a href="" onClick={() => this.setState({ showSavedTweets: false })}>Tweets</a>
                     <a href="">Tweets &amp; replies</a>
                     <a href="">Media</a>
+                    <a href="" onClick={() => this.setState({ showSavedTweets: true })}>Saved Tweets</a>
                 </div>
-                {tweets && tweets.map(tweet => <TweetComponent tweet={tweet} key={tweet.id} />)}
-            </div>
+                {(tweets && !showSavedTweets) && tweets.map(tweet => <TweetComponent tweet={tweet} key={tweet.id} />)}
+                {showSavedTweets && savedTweets.map(tweet => <TweetComponent tweet={tweet} key={tweet.id} />)}
+            </div >
         )
     }
 }
+export default withTracker(() => {
+    return {
+        savedTweets: Tweets.find({}).fetch(),
+    };
+})(TweetsTab);
