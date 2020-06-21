@@ -13,22 +13,7 @@ import SideBar from './SideBar.jsx';
 import TweetsTab from './TweetsTab.jsx';
 
 // App component - represents the whole app
-class App extends Component {
-    getTweets() {
-        Meteor.call('postTweet', (err, res) => {
-            if (err) {
-                console.log('Error', err);
-            } else {
-                console.log('Success', res);
-                // this.result.set(res);
-            }
-        })
-        // return this.props.tweets.map((tweet) => (
-        //     <Tweet key={tweet._id} tweet={tweet} />
-        // ));
-    }
-
-
+export default class App extends Component {
     render() {
         return (
             <div>
@@ -41,16 +26,7 @@ class App extends Component {
                         <SideBar />
                     </div>
                 </div>
-                <ul>
-                    {this.getTweets()}
-                </ul>
             </div>
         );
     }
 }
-
-export default withTracker(() => {
-    return {
-        tweets: Tweets.find({}).fetch(),
-    };
-})(App);
