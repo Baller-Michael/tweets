@@ -44,13 +44,13 @@ class TweetsTab extends Component {
                     <input type="submit" className="search-btn" value="Search User tweets" />
                 </form>
                 <div className="tweet-tabs">
-                    <a href="" onClick={() => this.setState({ showSavedTweets: false })}>Tweets</a>
+                    <a href="" onClick={() => { event.preventDefault(); this.setState({ showSavedTweets: false }) }}>Tweets</a>
                     <a href="">Tweets &amp; replies</a>
                     <a href="">Media</a>
-                    <a href="" onClick={() => this.setState({ showSavedTweets: true })}>Saved Tweets</a>
+                    <a href="" onClick={() => { event.preventDefault(); this.setState({ showSavedTweets: true }) }}>Saved Tweets</a>
                 </div>
                 {(tweets && !showSavedTweets) && tweets.map(tweet => <TweetComponent tweet={tweet} key={tweet.id} />)}
-                {showSavedTweets && savedTweets.map(tweet => <TweetComponent tweet={tweet} key={tweet.id} />)}
+                {showSavedTweets && savedTweets.map(tweet => <TweetComponent tweet={tweet.tweet} key={tweet._id} />)}
             </div >
         )
     }
