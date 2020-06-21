@@ -21,18 +21,9 @@ class TweetsTab extends Component {
                 console.log('Error', err);
             } else {
                 this.setState({ tweets: tweets })
-                console.log('tweets', tweets)
-                // this.result.set(res);
             }
         })
     }
-    // getTweets() {
-
-    //     })
-    // return this.props.tweets.map((tweet) => (
-    //     <Tweet key={tweet._id} tweet={tweet} />
-    // ));
-
     render() {
         const { tweets, showSavedTweets } = this.state;
         const { savedTweets } = this.props;

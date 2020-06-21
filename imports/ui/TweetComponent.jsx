@@ -11,10 +11,7 @@ export default class TweetComponent extends Component {
     }
     saveTweet() {
         const { tweet } = this.props;
-        console.log('tweet', tweet)
         Meteor.call('saveTweet', tweet);
-        // Tweets.insert({ created_at, _id: id, text, name, screen_name, profile_image_url_https });
-        console.log(Tweets.find({}).fetch())
     }
     deleteTweet() {
         const { tweet: { id } } = this.props;
