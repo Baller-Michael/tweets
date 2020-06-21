@@ -4,7 +4,7 @@ import '../imports/api/tweets.js';
 Meteor.startup(() => {
   Meteor.methods({
 
-    postTweet: function () {
+    'postTweet': function ({userId}) {
 
       Twit = require('twit');
 
@@ -19,7 +19,7 @@ Meteor.startup(() => {
       const getTweets = Meteor.wrapAsync(T.get, T);
 
       try {
-        return getTweets('statuses/user_timeline', { screen_name: 'Michael41984197', count: 100 });
+        return getTweets('statuses/user_timeline', { screen_name: userId, count: 100 });
       } catch (error) {
         throw new Meteor.Error(error.name, error.message);
       }

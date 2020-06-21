@@ -443,9 +443,10 @@ nav {
     flex-direction: row;
     margin-bottom: 1px;
     .user-logo {
-        padding-right: 10px;
+        margin-right: 10px;
         width: 48px;
         height: 48px;
+        border-radius: 50%;
     }
     .tweet-header {
         display: flex;
