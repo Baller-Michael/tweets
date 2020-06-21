@@ -18,7 +18,7 @@ export default class TweetComponent extends Component {
     }
     deleteTweet() {
         const { tweet: { id } } = this.props;
-        Meteor.call('consolePP');
+        Meteor.call('deleteTweet', id);
     }
     render() {
         const { tweet: { created_at, id, text, user: { name, screen_name, profile_image_url_https } } } = this.props;

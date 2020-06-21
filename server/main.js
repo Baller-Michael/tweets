@@ -26,11 +26,11 @@ Meteor.startup(() => {
       }
 
     },
-    'consolePP': function () {
-      Tweets.remove({})
-    },
+    'deleteTweet': function (id) {
+      Tweets.remove({ 'tweet.id': id })
+     },
     'saveTweet': function (tweet) {
-      Tweets.update({'tweet.id': tweet.id}, { tweet },{ upsert: true} )
+      Tweets.update({ 'tweet.id': tweet.id }, { tweet }, { upsert: true })
     }
   });
 });

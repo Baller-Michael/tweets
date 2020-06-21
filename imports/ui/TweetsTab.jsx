@@ -45,8 +45,6 @@ class TweetsTab extends Component {
                 </form>
                 <div className="tweet-tabs">
                     <a href="" onClick={() => { event.preventDefault(); this.setState({ showSavedTweets: false }) }}>Tweets</a>
-                    <a href="">Tweets &amp; replies</a>
-                    <a href="">Media</a>
                     <a href="" onClick={() => { event.preventDefault(); this.setState({ showSavedTweets: true }) }}>Saved Tweets</a>
                 </div>
                 {(tweets && !showSavedTweets) && tweets.map(tweet => <TweetComponent tweet={tweet} key={tweet.id} />)}
