@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import moment from 'moment';
-import { Tweets } from '../api/tweets.js';
 
 export default class TweetComponent extends Component {
     constructor(props) {

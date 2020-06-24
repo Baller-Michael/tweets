@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 
-// App component - represents the whole app
 export default class Header extends Component {
     render() {
         return (
             <header>
                 <div className="container">
-
                     <nav>
                         <div className="navigation">
                             <a href="">Home</a>

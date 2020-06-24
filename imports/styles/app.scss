@@ -253,22 +253,24 @@ nav {
     }
 }
 .tweet-tabs {
-    padding-top: 30px;
     background-color: #ffffff;
     border-radius: 2px;
     display: flex;
     flex-direction: row;
-    padding-bottom: 20px;
     border-bottom: 2px solid #e6ecf0;
     a {
         color: #3bb9e3;
         font-size: 18px;
         font-weight: 700;
         text-decoration: none;
-        margin-right: 70px;
-        &:first-child {
-            margin-left: 30px;
-        }
+        padding-right: 30px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+    }
+    .all-tweets, .saved-tweets {
+        color: #fff;
+        background: #3bb9e3;
     }
 }
 .follow-container {
@@ -475,6 +477,9 @@ nav {
             flex-direction: row;
             .action {
                 margin-right: 60px;
+                :active {
+                    background: red;
+                }
             }
         }
     }

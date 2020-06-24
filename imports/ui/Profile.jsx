@@ -29,7 +29,6 @@ export default class Profile extends Component {
                     <img src="followers-icon.png" alt="" className="circle-logo" />
                 </div>
 
-
                 <p className="gallery-amount">834 Photos and videos</p>
 
                 <div className="gallery">
@@ -42,7 +41,6 @@ export default class Profile extends Component {
                     <img className="profile-gallery" src="1.png" alt="" />
                     <img className="profile-gallery" src="1.png" alt="" />
                 </div>
-
             </div>
         )
     }
