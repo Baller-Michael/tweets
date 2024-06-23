@@ -1,1 +1,1 @@
-To start application clone repo and write meteor in terminal
+Application created on Twitter. Allows you to get/delete/post tweets.
